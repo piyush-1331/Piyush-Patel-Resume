@@ -23,11 +23,12 @@ body {
 
 /* PAGE BREAK FIX */
 .page-break {
+    page-break-before: always !important;
+    break-before: page !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
-    page-break-before: auto !important;
-    break-before: auto !important;
-    margin-top: 20px !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
 }
 
 /* Header */
