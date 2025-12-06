@@ -12,21 +12,17 @@ window.addEventListener("load", function () {
 // Download resume function
 function downloadResume() {
     const button = document.querySelector(".download-btn");
-    const downloadText = document.getElementById("download-text");
     const resume = document.getElementById("resume-content");
 
-    // Lock layout height to prevent shifting
+    // ✅ FORCE DESKTOP STYLE
+    resume.classList.add("pdf-mode");
+
+    // Lock height
     const originalHeight = resume.offsetHeight;
     resume.style.height = originalHeight + "px";
 
-    // Hide download button
+    // Hide button
     button.style.display = "none";
-
-    // Get current date for filename
-    const today = new Date();
-    const dateStr = today.getFullYear() + '-' + 
-                    String(today.getMonth() + 1).padStart(2, '0') + '-' + 
-                    String(today.getDate()).padStart(2, '0');
 
     const options = {
         margin: [0.1, 0.1, 0.1, 0.1],
@@ -51,16 +47,18 @@ function downloadResume() {
         .from(resume)
         .save()
         .then(() => {
-            // Show button again
+            // ✅ Restore everything
+            resume.classList.remove("pdf-mode");
             button.style.display = "block";
             resume.style.height = "auto";
         })
-        .catch((error) => {
-            console.error("PDF generation error:", error);
+        .catch(() => {
+            resume.classList.remove("pdf-mode");
             button.style.display = "block";
             resume.style.height = "auto";
         });
 }
+
 
 // Print functionality
 function printResume() {
