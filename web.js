@@ -70,4 +70,3 @@ window.addEventListener("load", function () {
       printResume();
     }
   });
-
