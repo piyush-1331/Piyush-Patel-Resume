@@ -13,15 +13,14 @@ window.addEventListener("load", function () {
   function downloadResume() {
     const button = document.querySelector(".download-btn");
     const downloadText = document.getElementById("download-text");
+    const resume = document.getElementById("resume-content");
 
-    // Hide button BEFORE PDF capture
+    // 🔥 1. FIX: Lock layout height to prevent shifting
+    const originalHeight = resume.offsetHeight;
+    resume.style.height = originalHeight + "px";
+
+    // Hide download button
     button.style.display = "none";
-
-    // Disable button and show loading text
-    downloadText.style.color = "black";
-    button.disabled = true;
-
-    const element = document.getElementById("resume-content");
 
     const options = {
         margin: [0.1, 0.1, 0.1, 0.1],
@@ -43,19 +42,19 @@ window.addEventListener("load", function () {
 
     html2pdf()
         .set(options)
-        .from(element)
+        .from(resume)
         .save()
         .then(() => {
-            // Show button back AFTER PDF is done
+            // Show button again
             button.style.display = "block";
-            downloadText.style.color = "white";
-            button.disabled = false;
+            resume.style.height = "auto";
         })
         .catch(() => {
             button.style.display = "block";
-            downloadText.style.color = "white";
-            button.disabled = false;
-        });}
+            resume.style.height = "auto";
+        });
+}
+
 
   
   
