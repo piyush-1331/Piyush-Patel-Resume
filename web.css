@@ -235,6 +235,33 @@ body {
     transform: translateY(-2px);
 }
 
+/* Hide button in print/PDF mode */
+@media print {
+    .download-btn {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
+
+/* Mobile button positioning */
+@media screen and (max-width: 768px) {
+    .download-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 18px;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .download-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+}
+
 /* ============================
    RESPONSIVE MOBILE FIXES
    ============================ */
