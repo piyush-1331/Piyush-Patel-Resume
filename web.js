@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
 
     const options = {
         margin: [0.1, 0.1, 0.1, 0.1],
-        filename: "Piyush_Resume.pdf",
+        filename: "Piyush_Patel-Resume.pdf",
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: {
             scale: 2,
@@ -70,3 +70,4 @@ window.addEventListener("load", function () {
       printResume();
     }
   });
+
