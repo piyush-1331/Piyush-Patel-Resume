@@ -1,0 +1,340 @@
+/* Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #e8f0fe;
+    padding: 20px;
+    color: #222;
+}
+
+.resume-container {
+    max-width: 8.27in;
+    background: #ffffff;
+    margin: auto;
+    padding: 0.5in;      /* Reduced to prevent blank PDF pages */
+    box-shadow: 0 0 25px rgba(0, 64, 150, 0.2);
+    border-top: 6px solid #1a73e8;
+}
+
+/* PAGE BREAK FIX */
+.page-break {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-before: auto !important;
+    break-before: auto !important;
+    margin-top: 20px !important;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.header-left {
+    max-width: 180px;
+}
+
+.cv-text {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    color: #1a73e8;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.cv-subtext {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #555;
+    font-weight: 500;
+}
+
+.header-center {
+    flex: 1;
+    text-align: center;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1a73e8;
+}
+
+.position {
+    color: #555;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.divider {
+    width: 1px;
+    height: 80px;
+    background: #c7d5f7;
+}
+
+/* Section */
+.section {
+    margin-bottom: 25px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title {
+    background: white;
+    padding: 5px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #1a73e8;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-line {
+    height: 1px;
+    background: #bcd1ff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+/* About */
+.about-content {
+    font-size: 14px;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.skill-item {
+    margin-bottom: 12px;
+}
+
+.skill-name {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.skill-bar {
+    background: #dce6ff;
+    height: 8px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.skill-fill {
+    background: #1a73e8;
+    height: 100%;
+    border-radius: 5px;
+    width: 0%;
+    transition: width 2s ease;
+}
+
+/* Two Column */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.job-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+.job-details {
+    font-size: 12px;
+    color: #555;
+}
+
+.job-description {
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.bullet li {
+    font-size: 13px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+/* Achievements */
+.references-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.reference-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1a73e8;
+}
+
+/* Contact Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.contact-item {
+    font-size: 13px;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.contact-item a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Download Button */
+.download-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1a73e8;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.download-btn:hover {
+    background: #1459b3;
+    transform: translateY(-2px);
+}
+
+/* ============================
+   RESPONSIVE MOBILE FIXES
+   ============================ */
+@media screen and (max-width: 768px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .resume-container {
+        padding: 0.4in;
+        width: 100%;
+        box-shadow: none;
+    }
+
+    /* Header Responsive */
+    .header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .header-left,
+    .divider {
+        display: none;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+
+    .position {
+        font-size: 12px;
+    }
+
+    .section-title {
+        font-size: 14px;
+        padding: 4px 14px;
+    }
+
+    .about-content {
+        font-size: 13px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        font-size: 13px;
+    }
+
+    /* Skills → single column */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    /* Two-column → single column */
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .references-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .reference-name {
+        font-size: 13px;
+    }
+
+    .job-title {
+        font-size: 13px;
+    }
+
+    .job-description,
+    .bullet li,
+    .job-details {
+        font-size: 12px;
+    }
+}
+
+/* Extra small screens (<480px) */
+@media screen and (max-width: 480px) {
+
+    .resume-container {
+        padding: 0.35in;
+    }
+
+    .name {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .about-content,
+    .contact-item,
+    .job-description,
+    .bullet li {
+        font-size: 12px;
+    }
+}
