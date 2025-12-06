@@ -7,20 +7,26 @@ window.addEventListener("load", function () {
         fill.style.width = width + "%";
       }, index * 200);
     });
-  });
-  
-  // Download resume function
-  function downloadResume() {
+});
+
+// Download resume function
+function downloadResume() {
     const button = document.querySelector(".download-btn");
     const downloadText = document.getElementById("download-text");
     const resume = document.getElementById("resume-content");
 
-    // 🔥 1. FIX: Lock layout height to prevent shifting
+    // Lock layout height to prevent shifting
     const originalHeight = resume.offsetHeight;
     resume.style.height = originalHeight + "px";
 
     // Hide download button
     button.style.display = "none";
+
+    // Get current date for filename
+    const today = new Date();
+    const dateStr = today.getFullYear() + '-' + 
+                    String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                    String(today.getDate()).padStart(2, '0');
 
     const options = {
         margin: [0.1, 0.1, 0.1, 0.1],
@@ -49,24 +55,22 @@ window.addEventListener("load", function () {
             button.style.display = "block";
             resume.style.height = "auto";
         })
-        .catch(() => {
+        .catch((error) => {
+            console.error("PDF generation error:", error);
             button.style.display = "block";
             resume.style.height = "auto";
         });
 }
 
-
-  
-  
-  // Print functionality
-  function printResume() {
+// Print functionality
+function printResume() {
     window.print();
-  }
-  
-  // Add keyboard shortcut for printing
-  document.addEventListener("keydown", function (e) {
+}
+
+// Add keyboard shortcut for printing
+document.addEventListener("keydown", function (e) {
     if (e.ctrlKey && e.key === "p") {
-      e.preventDefault();
-      printResume();
+        e.preventDefault();
+        printResume();
     }
-  });
+});
