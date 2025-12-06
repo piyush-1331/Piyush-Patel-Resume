@@ -16,7 +16,7 @@ body {
     max-width: 8.27in;
     background: #ffffff;
     margin: auto;
-    padding: 0.5in;      /* Reduced to prevent blank PDF pages */
+    padding: 0.5in;
     box-shadow: 0 0 25px rgba(0, 64, 150, 0.2);
     border-top: 6px solid #1a73e8;
 }
@@ -236,35 +236,122 @@ body {
     transform: translateY(-2px);
 }
 
-/* Hide button in print/PDF mode */
+/* ============================
+   PRINT/PDF MODE - DESKTOP FORMAT
+   ============================ */
 @media print {
+    body {
+        padding: 0;
+        background: white;
+    }
+
+    .resume-container {
+        max-width: 100%;
+        padding: 0.5in;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+    }
+
     .download-btn {
         display: none !important;
         visibility: hidden !important;
     }
-}
 
-/* Mobile button positioning */
-@media screen and (max-width: 768px) {
-    .download-btn {
-        bottom: 20px;
-        right: 20px;
-        padding: 12px 18px;
-        font-size: 13px;
+    /* Keep desktop layout for PDF */
+    .header {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between;
+        align-items: center;
     }
-}
 
-@media screen and (max-width: 480px) {
-    .download-btn {
-        bottom: 15px;
-        right: 15px;
-        padding: 10px 14px;
-        font-size: 12px;
+    .header-left {
+        max-width: 180px !important;
+        display: block !important;
+    }
+
+    .divider {
+        display: block !important;
+        width: 1px;
+        height: 80px;
+        background: #c7d5f7;
+    }
+
+    .name {
+        font-size: 24px !important;
+    }
+
+    .position {
+        font-size: 13px !important;
+    }
+
+    .cv-text {
+        font-size: 14px !important;
+    }
+
+    .cv-subtext {
+        font-size: 11px !important;
+    }
+
+    .section-title {
+        font-size: 15px !important;
+    }
+
+    .about-content {
+        font-size: 14px !important;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 25px !important;
+    }
+
+    .skill-name {
+        font-size: 13px !important;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 25px !important;
+    }
+
+    .references-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 25px !important;
+    }
+
+    .reference-name {
+        font-size: 14px !important;
+    }
+
+    .job-title {
+        font-size: 14px !important;
+    }
+
+    .job-details {
+        font-size: 12px !important;
+    }
+
+    .job-description {
+        font-size: 13px !important;
+    }
+
+    .bullet li {
+        font-size: 13px !important;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .contact-item {
+        font-size: 13px !important;
     }
 }
 
 /* ============================
-   RESPONSIVE MOBILE FIXES
+   RESPONSIVE MOBILE FIXES - SCREEN ONLY
    ============================ */
 @media screen and (max-width: 768px) {
 
@@ -285,7 +372,10 @@ body {
         text-align: center;
     }
 
-    .header-left,
+    .header-left {
+        max-width: 100%;
+    }
+
     .divider {
         display: none;
     }
@@ -296,6 +386,14 @@ body {
 
     .position {
         font-size: 12px;
+    }
+
+    .cv-text {
+        font-size: 12px;
+    }
+
+    .cv-subtext {
+        font-size: 10px;
     }
 
     .section-title {
@@ -318,9 +416,14 @@ body {
         gap: 15px;
     }
 
+    .skill-name {
+        font-size: 12px;
+    }
+
     /* Two-column → single column */
     .two-column {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
     .references-grid {
@@ -336,10 +439,23 @@ body {
         font-size: 13px;
     }
 
-    .job-description,
-    .bullet li,
     .job-details {
         font-size: 12px;
+    }
+
+    .job-description {
+        font-size: 12px;
+    }
+
+    .bullet li {
+        font-size: 12px;
+    }
+
+    .download-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 18px;
+        font-size: 13px;
     }
 }
 
@@ -363,6 +479,13 @@ body {
     .contact-item,
     .job-description,
     .bullet li {
+        font-size: 12px;
+    }
+
+    .download-btn {
+        bottom: 15px;
+        right: 15px;
+        padding: 10px 14px;
         font-size: 12px;
     }
 }
