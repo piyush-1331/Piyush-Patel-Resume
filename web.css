@@ -540,3 +540,41 @@ body {
         font-size: 12px;
     }
 }
+
+/* FORCE DESKTOP LAYOUT FOR PDF ON ALL DEVICES */
+.pdf-mode .header,
+.pdf-mode .skills-grid,
+.pdf-mode .two-column,
+.pdf-mode .references-grid {
+    display: flex !important;
+}
+
+.pdf-mode .header {
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+}
+
+.pdf-mode .skills-grid,
+.pdf-mode .two-column,
+.pdf-mode .references-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 25px !important;
+}
+
+.pdf-mode .name {
+    font-size: 24px !important;
+}
+
+.pdf-mode .position {
+    font-size: 13px !important;
+}
+
+.pdf-mode .cv-text {
+    font-size: 14px !important;
+}
+
+.pdf-mode .cv-subtext {
+    font-size: 11px !important;
+}
